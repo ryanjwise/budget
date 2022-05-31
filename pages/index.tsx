@@ -1,55 +1,96 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import styled from "styled-components";
+import Layout from "../components/layout";
+
+const TextAlignment = `text-align: center;`;
+
+const Title = styled.h1`
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  ${TextAlignment}
+  a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: underline;
+  }
+`;
+
+const Description = styled.p`
+  ${TextAlignment}
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+`;
+
+const Grid = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  @media (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+
+const Card = styled.a`
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 300px;
+  :hover,
+  :focus,
+  :active {
+    color: #0070f3;
+    border-color: #0070f3;
+  }
+  h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
+  p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+`;
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Budget UI</title>
-        <meta name="landing page" content="Work In Progress" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
+      <Title>Welcome to Budget UI</Title>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Budget UI
-        </h1>
+      <Description>
+        This application was created using{" "}
+        <a href="https://nextjs.org/docs">Next Js</a>
+        <br />
+        This is a placeholder for now, while the business logic is configured.
+      </Description>
 
-        <p className={styles.description}>
-          This application was created using <a href="https://nextjs.org/docs">Next Js</a><br/>
-          This is a placeholder for now, while the business logic is configured.
-        </p>
+      <Grid>
+        <Card href="https://github.com/ryanjwise/budget">
+          <h2>Github Repository &rarr;</h2>
+          <p>See the repository source for this page.</p>
+        </Card>
 
-        <div className={styles.grid}>
-          <a href="https://github.com/ryanjwise/budget" className={styles.card}>
-            <h2>Github Repository &rarr;</h2>
-            <p>See the repository source for this page.</p>
-          </a>
+        <Card href="https://nextjs.org/learn">
+          <h2>Learn Next &rarr;</h2>
+          <p>Learn about Next.js in an interactive course with quizzes!</p>
+        </Card>
+      </Grid>
+    </Layout>
+  );
+};
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn Next &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
-}
-
-export default Home
+export default Home;
